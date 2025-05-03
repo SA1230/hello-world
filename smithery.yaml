@@ -1,0 +1,7 @@
+runtime: python
+entrypoint: main.py
+tools:
+  - tool: say_hello
+    path: /invoke
+    method: POST
+    description: Responds with a greeting
