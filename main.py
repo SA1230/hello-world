@@ -1,12 +1,15 @@
-# main.py
-from fastapi import FastAPI
-import uvicorn
+from fastapi import FastAPI, Request
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"message": "Hello MCP World"}
+@app.post("/invoke")
+async def invoke(request: Request):
+    data = await request.json()
+    fn_name = data.get("tool")
+    params = data.get("input", {})
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    if fn_name == "say_hello":
+        name = params.get("name", "stranger")
+        return {"output": f"Hello, {name}!"}
+    else:
+        return {"error": "Tool not found"}
