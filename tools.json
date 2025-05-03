@@ -1,0 +1,16 @@
+[
+  {
+    "name": "say_hello",
+    "description": "Responds with a greeting",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the person to greet"
+        }
+      },
+      "required": ["name"]
+    }
+  }
+]
