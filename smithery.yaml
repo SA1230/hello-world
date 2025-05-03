@@ -1,5 +1,6 @@
 runtime: python
 entrypoint: main.py
+startCommand: python main.py
 tools:
   - tool: say_hello
     path: /invoke
